@@ -1,0 +1,47 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\title{Gnuplot}
+\begin{document}
+\maketitle
+\section{Functions}
+\paragraph{}
+In general, any mathematical expression accepted by C, FORTRAN, Pascal, or BASIC may be plotted. The precedence of operators is determined by the specifications of the C programming language.
+\paragraph{}
+Some of the supported functions are:
+\begin{enumerate}
+\item $abs(x)$
+\item $acos(x)$
+\item $sin(x)$
+\item $cos(x)$
+\item $tan(x)$
+\item $log(x)$
+\item $log10(x)$
+\item $norm(x)$
+\item $rand(x)$
+\item $sgn(x)$
+\end{enumerate}
+\paragraph{}
+The supported operators in Gnuplot are the same as the corresponding operators in the C programming language, except that most operators accept integer, real, and complex arguments. The ** operator (exponentiation) is supported as in FORTRAN. Parentheses may be used to change the order of evaluation. The variable names x, y, and z are used as the default independent variables.
+\section{The Plot Command}
+\paragraph{}
+plot and splot are the primary commands in Gnuplot. They plot functions and data in many many ways. plot is used to plot 2-d functions and data, while splot plots 3-d surfaces and data.
+where either a [function] or the name of a data file enclosed in quotes is supplied. For more complete descriptions, type: help plot help plot with help plot using or help plot smooth .
+\subsection{Plotting Functions}
+To plot functions simply type: plot [function] at the gnuplot$>$ prompt.
+\paragraph{}
+For example try:
+\begin{align*}
+\text{gnuplot}&>\text{plot } \text{sin}(x)/x\\
+\text{gnuplot}&> \text{spot } sin(x*y/20)\\
+\text{gnuplot}&> \text{plot sin}(x) \text{ title 'Sine Function',tan}(x) \text{title 'Tangent'}
+\end{align*}
+\subsection{Plotting Data}
+\paragraph{}
+Discrete data contained in a file can be displayed by specifying the name of the data file (enclosed in quotes) on the plot or splot command line. Data files should have the data arranged in columns of numbers. Columns should be separated by white space (tabs or spaces) only, (no commas). Lines beginning with a \# character are treated as comments and are ignored by Gnuplot. A blank line in the data file results in a break in the line connecting data points.
+You can display your data by typing:
+$$\text{gnuplot}>\text{plot  "force.dat" using 1:2 title 'Column', \
+                      "force.dat" using 1:3 title 'Beam'}$$
+Where force.dat is our data file.
+For more information type
+$$\text{gnuplot}>\text{ help plot data file}$$
+\end{document}
